@@ -23,9 +23,10 @@
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/title"
@@ -33,66 +34,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Local Weather"
-                android:textSize="36sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="36sp"/>
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/scroll_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:fillViewport="true"
                 android:scrollbars="none"
-                app:layout_constraintTop_toBottomOf="@id/title">
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-                <TableLayout
-                    android:id="@+id/tl_weather"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_weather"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:stretchColumns="1, 2"
-                    android:visibility="gone"
-                    tools:visibility="visible">
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#EAEAEA">
-
-                        <TextView
-                            android:id="@+id/checkA_dateTitleText"
-                            android:layout_width="46dp"
-                            android:layout_height="45dp"
-                            android:gravity="center"
-                            android:text="Local"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/tv_today"
-                            android:layout_width="wrap_content"
-                            android:layout_height="45dp"
-                            android:gravity="center"
-                            android:text="Today"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_tomorrow"
-                            android:layout_width="wrap_content"
-                            android:layout_height="45dp"
-                            android:gravity="center"
-                            android:text="Tomorrow"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                </TableLayout>
+                    android:visibility="gone"/>
 
             </androidx.core.widget.NestedScrollView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
