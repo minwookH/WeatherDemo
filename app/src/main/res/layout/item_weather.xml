@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_weather"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/iv_weather"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_temp"
+        app:layout_constraintStart_toEndOf="@id/iv_weather"
+        app:layout_constraintTop_toTopOf="@id/iv_weather"
+        tools:text="123123456" />
+
+    <TextView
+        android:id="@+id/tv_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_weather"
+        app:layout_constraintEnd_toStartOf="@id/tv_humidity"
+        app:layout_constraintStart_toEndOf="@id/iv_weather"
+        app:layout_constraintTop_toBottomOf="@id/tv_state"
+        tools:text="123123456" />
+
+    <TextView
+        android:id="@+id/tv_humidity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tv_temp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_temp"
+        app:layout_constraintTop_toTopOf="@id/tv_temp"
+        tools:text="123123456" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
