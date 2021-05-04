@@ -100,7 +100,7 @@ class WeatherAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
                 // Today
                 todayState.text = today.weather_state_name
-                todayTemp.text = "${today.the_temp.roundToInt()}"
+                todayTemp.text = "${today.the_temp.roundToInt()}" + "\u2103"
                 todayHumidity.text = "${today.humidity.roundToInt()}%"
 
                 Glide.with(view.context)
@@ -109,7 +109,7 @@ class WeatherAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
                 // Tomorrow
                 tomorrowState.text = tommorow.weather_state_name
-                tomorrowTemp.text = "${tommorow.the_temp.roundToInt()}"
+                tomorrowTemp.text = "${tommorow.the_temp.roundToInt()}" + "\u2103"
                 tomorrowHumidity.text = "${tommorow.humidity.roundToInt()}%"
 
                 Glide.with(view.context)

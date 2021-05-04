@@ -1,21 +1,17 @@
 package com.minwook.weatherdemo.ui
 
 import android.os.Bundle
-import android.util.TypedValue
-import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.setMargins
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.minwook.weatherdemo.R
 import com.minwook.weatherdemo.model.HeaderRow
 import com.minwook.weatherdemo.model.LocationRow
-import com.minwook.weatherdemo.view.WeatherView
-import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity(), MainContract.View, SwipeRefreshLayout.OnRefreshListener {
 
@@ -45,6 +41,13 @@ class MainActivity : AppCompatActivity(), MainContract.View, SwipeRefreshLayout.
         adapter = WeatherAdapter()
         weatherRecyclerView.adapter = adapter
         weatherRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        ContextCompat.getDrawable(this, R.drawable.divider)?.let {
+            val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+            dividerItemDecoration.setDrawable(it)
+            weatherRecyclerView.addItemDecoration(dividerItemDecoration)
+        }
+
     }
 
     override fun setData(data: List<LocationRow>) {
